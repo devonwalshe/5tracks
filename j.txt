@@ -1,0 +1,43 @@
+Jacapo todo
+===========
+Housekeeping:
+	Setup homebrew
+	Setup python3
+	Setup virtualenv
+	ipython
+	
+	
+Data Types:
+	string
+	list
+	dictionary
+	tuple
+	int
+	float
+	
+Operators
+	comparison
+	arithmatic
+	logical
+	assignment
+	membership
+	
+Control Flow
+	if statement
+	for loop
+	while loop
+	break
+	pass
+	
+	
+Functions
+	function definition
+	arguments
+	return values
+	
+Fizzbuzz
+	count to 50
+	for every multiple of 3 print Fizz
+	for every multiple of 5 print Buzz
+	for every multiple of 3 and 5 print FizzBuzz
+	
