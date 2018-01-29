@@ -1,0 +1,73 @@
+General Notes for process
+
+User flow: 
+	searches for a track, artist or label
+		clicks on the one they want
+		If its a track:
+			Configurable:
+				Label search:
+					Get the label its on
+					Get all artists on that label
+					Get all tracks by that artist
+					Show them and optionally add to listen list
+				Artist Search
+					Get all the artists tracks
+				Deep search
+					Get all artists labels
+						Get all other people on those labels
+							Get all tracks for each person
+		If its an artist:
+			Same (for now)
+		If its a label
+			Same (for now)
+		Add tracks to listen list
+		Add scoring data to tracks
+	Browse through listen list
+		Artists
+		Labels
+		Tracks
+	Import library
+		Scans itunes library for tracks
+		Attempts to link it to release
+		If a release is found:
+			Add it to the listened list
+			Do a label search for it
+	
+	
+	
+Requirements
+	Search facility (solr / elasticsearch)
+	database tables
+		User table
+			id
+			name
+		listen_tracks
+			release_id :int foreign key
+			popularity_score :float
+				discogs score
+				spotify listens
+				...
+			underground_score :float
+				Was is released on vinyl
+				small amount of releases
+				small network
+			preference_score
+				average of listened tracks entered scores
+			listened :boolean
+			user_score
+		Network Table
+			(probably should be in another DB, mongo maybe?)
+			Artists relationships
+				Related by:
+					On the same label
+					Co-produced tracks together
+					On the same releases
+			Label relationships
+				Related by:
+					Artist on the label
+					Label has artists who have released with them
+
+Tasks
+			
+			
+		
