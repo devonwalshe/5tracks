@@ -1,0 +1,15 @@
+
+elasticsearch:
+  host: 188.166.136.134
+  port: 9200
+  user: elastic
+  password: ES_PASS
+  index: 5tracks
+
+
+postgres:
+  host: localhost
+  port: 5432
+  database: discovery
+  password:
+  user: azymuth

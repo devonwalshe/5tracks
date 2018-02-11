@@ -1,0 +1,8 @@
+### Todo
+
+DONE - Set up scrub table
+DONE - Set up listen table
+Set up search class (including DB and ES)
+set up fulltext query for ES
+set up labelmates query
+set up labelmates songs query
