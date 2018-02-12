@@ -26,7 +26,7 @@ class Search(object):
     results = es.search(self.index, body=body, size=self.size)
     return(Results(results))
     
-  def boostsearch(self, query="", fields = ['song', 'artist'], boost_fields = ['song'], boost_factor=2, size=None):
+  def boost_search(self, query="", fields = ['song', 'artist'], boost_fields = ['song'], boost_factor=2, size=None):
     ''' 
     Boosts specific fields for search relevance
     '''
@@ -53,7 +53,7 @@ class Search(object):
             GROUP BY 
             '''  
   
-
+# Adding a comment
   def label_artists(self, label_id):
     query = '''
             SELECT a.name artist, a.id artist_id, count(r.id) release_count
