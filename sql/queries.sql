@@ -37,7 +37,7 @@ WHERE id = any(SELECT label_id
               FROM release_label
               WHERE release_id = any(SELECT release_id 
                                     FROM release_artist
-                                    WHERE artist_id = 429140));
+                                    WHERE artist_id = 439140));
 
 -- Artist label release count
 SELECT * FROM 
@@ -46,7 +46,7 @@ SELECT * FROM
   INNER JOIN release_label rl ON r.id = rl.release_id
   INNER JOIN label l ON rl.label_id = l.id
   INNER JOIN artist a ON ra.artist_id = a.id
-  WHERE a.id = 429140
+  WHERE a.id = 439140
   GROUP BY l.id) releases
 WHERE releases.release_count > 1;
 
@@ -59,7 +59,19 @@ LEFT JOIN release_track_artist rta ON rt.id = rta.release_track_id
 LEFT JOIN release_artist ra ON rt.release_id=ra.release_id
 LEFT JOIN artist a ON ra.artist_id = a.id 
 LEFT JOIN artist aa ON rta.artist_id = aa.id
-WHERE l.id = 8792
+WHERE l.id = 82838
 GROUP BY track_id;
+
+
+-- label artists
+SELECT a.name artist, count(r.id) release_count
+FROM artist a
+LEFT JOIN release_artist ra ON ra.artist_id = a.id
+LEFT JOIN release_label rl ON rl.release_id = ra.release_id
+LEFT JOIN release r ON r.id = ra.release_id
+WHERE rl.label_id = 8792
+GROUP BY a.id
+ORDER BY release_count DESC;
+
 
 -- Add tracks to track_queue

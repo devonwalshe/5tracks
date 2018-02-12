@@ -2,7 +2,8 @@
 
 DONE - Set up scrub table
 DONE - Set up listen table
-Set up search class (including DB and ES)
-set up fulltext query for ES
-set up labelmates query
-set up labelmates songs query
+DONE - Set up search class (including DB and ES)
+DONE - set up fulltext query for ES
+DONE - set up labelmates query
+DONE - set up labelmates songs query
+set up queries in search
