@@ -1,13 +1,13 @@
 Jacapo todo
 ===========
-Housekeeping:
+DONE - Housekeeping:
 	Setup homebrew
 	Setup python3
 	Setup virtualenv
 	ipython
 	
 	
-Data Types:
+DONE - Data Types:
 	string
 	list
 	dictionary
@@ -15,30 +15,36 @@ Data Types:
 	int
 	float
 	
-Operators
+DONE - Operators
 	comparison
 	arithmatic
 	logical
 	assignment
 	membership
 	
-Control Flow
+DONE - Control Flow
 	if statement
 	for loop
 	while loop
 	break
 	pass
 
-
-
-Functions
+DONE - Functions
 	function definition
 	arguments
 	return values
 	
-Fizzbuzz
+DONE - Fizzbuzz
 	count to 50
 	for every multiple of 3 print Fizz
 	for every multiple of 5 print Buzz
 	for every multiple of 3 and 5 print FizzBuzz
 	
+Project setup
+Virtualenv
+Running a python file from the command line
+importing a library (requests)
+Using requests
+install postgres
+Set up psycopg2
+Connect to DB in python
