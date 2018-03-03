@@ -7,8 +7,8 @@ DONE - set up fulltext query for ES
 DONE - set up labelmates query
 DONE - set up labelmates songs query
 DONE - set up queries in search
-set up flask apis
-DONE set up ember frontend
+DONE - set up flask apis
+DONE - set up ember frontend
 connect ember to flask
 design page flow
 write pages

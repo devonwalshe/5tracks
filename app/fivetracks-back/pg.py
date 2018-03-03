@@ -9,7 +9,7 @@ class PgConn(object):
     self.arraysize=arraysize
 
   def connect(self):
-    conneection = psycopg2.connect(self.conn_string)
+    connection = psycopg2.connect(self.conn_string)
     self.conn = connection
     return(self.conn)
 

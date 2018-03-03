@@ -8,8 +8,11 @@ elasticsearch:
 
 
 postgres:
+  drivername: postgresql
   host: localhost
   port: 5432
   database: discovery
   password:
-  user: azymuth
+  username: azymuth
+
+pg_echo: false

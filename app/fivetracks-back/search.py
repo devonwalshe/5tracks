@@ -1,5 +1,4 @@
 from init import es, pg_connection_string
-from pg import PgConn
 
 class Search(object):
   '''
@@ -14,7 +13,6 @@ class Search(object):
     Basic seach of all fields
     '''
     if not size:
-      print(self.size)
       size = self.size
     body = {"query": {
                       "query_string": {
@@ -32,9 +30,11 @@ class Search(object):
     '''
     if not size:
       size = self.size
-    
+    if not boost_fields:
+      boost_fields = []
     boost_list = [x+"^"+str(boost_factor) if x in boost_fields else x for x in fields]
-    body= {"query": {
+    body= {"size": size,
+            "query": {
                   "multi_match": {
                     "query": query,
                     "fields": boost_list
@@ -45,13 +45,18 @@ class Search(object):
     
   def artist_tracks(self, artist_id):
     query = '''
-            SELECT *
+            SELECT MAX(rt.title), rt.release_id
             FROM release_track rt
             LEFT JOIN release_artist ra ON rt.release_id = ra.release_id
             LEFT JOIN artist a ON ra.artist_id = a.id
-            WHERE ra.artist_id = {}
-            GROUP BY 
-            '''  
+            WHERE ra.artist_id = 2390933
+            GROUP BY rt.id
+            '''  # currently will not work need specific 
+    cursor = PgConn(pg_connection_string).named_cursor('labelcursor')
+    cursor.execute(query)
+    results = cursor.fetchall()
+    cursor.close()
+    return(results)
   
 # Adding a comment
   def label_artists(self, label_id):
