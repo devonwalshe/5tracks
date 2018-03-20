@@ -1,6 +1,10 @@
 <div class="jumbo">
 	<div class='right tomster'>
 		<h2>Search</h2>
+		{{ input value=q enter='submit'}}
+		
+		{{#each model as |searchResult| }}
+			{{search/search-result result=searchResult}}
+		{{/each}}
 	</div>
 </div>
-{{outlet}}

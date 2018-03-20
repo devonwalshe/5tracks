@@ -9,6 +9,19 @@ DONE - set up labelmates songs query
 DONE - set up queries in search
 DONE - set up flask apis
 DONE - set up ember frontend
-connect ember to flask
+NOT DONE - connect ember to flask
+DONE - rewrite everything in rails api
+DONE - write json api in rails
+DONE - connect rails to ember
+DONE - write pages & routes in ember
+DONE - connect pages with links
+DONE - save tracks to queues
+save multiple tracks to queues
+figure out pagination and counts for large relations
+write custom serializers to make use of better names in ember
+some CSS work
+start on filling out ratings scores via jobs in rails
 design page flow
-write pages
+Import itunes library
+Start on algorithm to suggest tracks based on the similarity to your library
+work out text formatting tags with [] - https://support.discogs.com/hc/en-us/articles/360001568133#format

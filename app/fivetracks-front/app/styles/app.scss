@@ -1,0 +1,15 @@
+@import "ember-bootstrap/bootstrap";
+
+//Defaults
+@import 'defaults/palette';
+@import 'layout';
+
+// Pages
+@import 'pages/artist';
+@import 'pages/label';
+@import 'pages/release';
+@import 'pages/track';
+
+//Finally
+@import 'main';
+

@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-md-8">
+		<h1>{{label.name}}</h1>
+	</div>
+	<div class="col-md-4 pull-right label-details">
+		<ul class='list-inline'>
+			<li class='list-inline-item'>Contact:</li>
+			<li class='list-inline-item'>{{label.contactInfo}}</li>
+		</ul>
+		<ul class='list-inline'>
+			<li class='list-inline-item'>Profile:</li>
+			<li class='list-inline-item'>{{label.profile}}</li>
+		</ul>
+	</div>
+</div>
+
+{{#if label.parent}}
+	Parent Label: {{#link-to 'labels.show' label.parent}}{{label.parent.name}}{{/link-to}}
+{{/if}}
+<p>Sublabels: {{#each label.sublabels as |label|}}{{#link-to 'labels.show' label}}<p>{{label.name}}</p>{{/link-to}}{{/each}}</p>
+<p>Releases: {{#each label.releases as |release|}}{{#link-to 'releases.show' release}}<p>{{release.title}}</p>{{/link-to}}{{/each}}</p>
+<p>Artists: {{#each label.artists as |artist|}}{{#link-to 'artists.show' artist}}<p>{{artist.name}}</p>{{/link-to}}{{/each}}</p>
+{{yield}}

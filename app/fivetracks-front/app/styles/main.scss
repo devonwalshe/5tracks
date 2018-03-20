@@ -1,0 +1,55 @@
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0px;
+  background: $dusk;
+  color: $lace;
+}
+
+header{
+  background: $sunrise;
+  padding: 5px 25px 5px 25px;
+  .title{
+    display:inline-block;
+  }
+  .menu{
+    display:inline-block;
+  }
+  .links{
+    display:inline-block;
+    padding: 0;
+    margin-left:25px;
+    a{
+      margin-left:10px;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: $agave;
+  &:hover{
+    text-decoration: underline;
+    color: $agave;
+  }
+  &:visited{
+    color: $bloom;
+  };;
+}
+
+footer {
+  background: $sunrise;
+  padding:10px;
+  color: $sand;
+  font-weight:bold;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}

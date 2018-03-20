@@ -1,0 +1,4 @@
+class LabelsController < ApplicationController
+  
+  
+end

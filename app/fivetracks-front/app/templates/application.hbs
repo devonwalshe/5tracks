@@ -1,1 +1,28 @@
-{{outlet}}
+<div class="container">
+	<header>
+		<div class="menu">
+			<div class='title'>
+				{{#link-to "index"}}
+					<h1>
+						<em>5 Tracks</em>
+					</h1>
+				{{/link-to}}
+			</div>
+			<div class="links">
+			  {{#link-to "search"}}
+			    Search
+			  {{/link-to}}
+			  {{#link-to "queue-tracks"}}
+			    Queue tracks
+			  {{/link-to}}
+			</div>
+		</div>
+	</header>
+
+	<div class="body">
+	    {{outlet}}
+	</div>
+	<footer>
+		Footer
+	</footer>
+</div>

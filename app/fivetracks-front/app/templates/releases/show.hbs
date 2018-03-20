@@ -1,0 +1,9 @@
+<div class='id-release'>
+	Release
+</div>
+<h1>
+	{{model.title}}
+</h1>
+{{releases/release-details release=model}}
+{{tracks/track-list tracks=model.releaseTracks  release=model queueSave="queueSave" allQueueSave="allQueueSave"}}
+{{outlet}}

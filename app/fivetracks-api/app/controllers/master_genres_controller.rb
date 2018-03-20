@@ -1,0 +1,2 @@
+class MasterGenresController < ApplicationController
+end

@@ -3,6 +3,7 @@ ALTER TABLE artist ADD PRIMARY KEY (id);
 CREATE INDEX artist_name_idx ON artist(name);
 
 -- artist_alias
+ALTER TABLE artist_alias ADD id SERIAL PRIMARY KEY;
 ALTER TABLE artist_alias ADD CONSTRAINT fk_artist_id FOREIGN KEY (artist_id) REFERENCES artist(id) ON DELETE CASCADE;
 
 -- artist_namevariation
@@ -20,6 +21,7 @@ CREATE INDEX membership_idx ON group_member(member_artist_id, group_artist_id);
 ALTER TABLE label ADD PRIMARY KEY (id);
 
 -- label_url
+ALTER TABLE label_url ADD PRIMARY KEY (id);
 CREATE INDEX label_idx ON label_url(label_id);
 ALTER TABLE label_url ADD CONSTRAINT fk_label_id FOREIGN KEY (label_id) REFERENCES label(id) ON DELETE CASCADE;
 
@@ -28,19 +30,23 @@ ALTER TABLE master ADD PRIMARY KEY (id);
 CREATE INDEX main_release_idx ON master(main_release);
 
 -- master_artist
+ALTER TABLE master_artist ADD id SERIAL PRIMARY KEY;
 CREATE INDEX master_artist_master_idx ON master_artist(master_id);
 CREATE INDEX master_artist_artist_idx ON master_artist(artist_id);
 ALTER TABLE master_artist ADD CONSTRAINT fk_master_id FOREIGN KEY (master_id) REFERENCES master(id) ON DELETE CASCADE;
 
 -- master_genre
+ALTER TABLE master_genre ADD id SERIAL PRIMARY KEY;
 CREATE INDEX master_genre_master_idx ON master_genre(master_id);
 ALTER TABLE master_genre ADD CONSTRAINT fk_master_id FOREIGN KEY (master_id) REFERENCES master(id) ON DELETE CASCADE;
 
 -- master_style
+ALTER TABLE master_style ADD id SERIAL PRIMARY KEY;
 CREATE INDEX master_style_master_idx ON master_style(master_id);
 ALTER TABLE master_style ADD CONSTRAINT fk_master_id FOREIGN KEY (master_id) REFERENCES master(id) ON DELETE CASCADE;
 
 -- master_video
+ALTER TABLE master_video ADD id SERIAL PRIMARY KEY;
 CREATE INDEX master_video_master_idx ON master_style(master_id);
 ALTER TABLE master_video ADD CONSTRAINT fk_master_id FOREIGN KEY (master_id) REFERENCES master(id) ON DELETE CASCADE;
 
@@ -50,42 +56,48 @@ CREATE INDEX release_master_idx ON release(master_id);
 
 
 -- release_artist
+ALTER TABLE release_artist ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_artist_release_idx ON release_artist(release_id);
 CREATE INDEX release_artist_artist_idx ON release_artist(artist_id);
 ALTER TABLE release_artist ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
 
 -- release_company
+ALTER TABLE release_company ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_company_release_idx ON release_company(release_id);
 ALTER TABLE release_company ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
 
 
 -- release_format
+ALTER TABLE release_format ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_format_release_idx ON release_format(release_id);
 ALTER TABLE release_format ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
 
 
 -- release_genre
+ALTER TABLE release_genre ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_genre_release_idx ON release_genre(release_id);
 ALTER TABLE release_genre ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
 
 -- release_identifier
+ALTER TABLE release_identifier ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_identifier_release_idx ON release_identifier(release_id);
 ALTER TABLE release_identifier ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
 
 
 -- release_label
+ALTER TABLE release_label ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_label_label_idx ON release_label(label_id);
 CREATE INDEX release_label_release_idx ON release_label(release_id);
 ALTER TABLE release_label ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
 
 
 -- release_style
+ALTER TABLE release_style ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_style_release_idx ON release_style(release_id);
 ALTER TABLE release_style ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
 
--- release_track;
-ALTER TABLE release_track ADD id SERIAL;
-ALTER TABLE release_track ADD PRIMARY KEY (id);
+-- release_track
+ALTER TABLE release_track ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_track_release_idx ON release_track(release_id);
 
 ALTER TABLE release_track ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
@@ -103,6 +115,7 @@ ALTER TABLE release_track ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) 
 
 
 -- release_track_artist
+ALTER TABLE release_track_artist ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_track_artist_release_idx ON release_track_artist(release_id);
 CREATE INDEX release_track_artist_track_idx ON release_track_artist(track_sequence);
 CREATE INDEX release_track_artist_artist_idx ON release_track_artist(artist_id);
@@ -119,6 +132,7 @@ WHERE rta.release_id=rt.release_id AND rta.track_sequence=rt.sequence;
 CREATE INDEX release_track_artist_release_track_idx ON release_track_artist(release_track_id);
 
 -- release_video
+ALTER TABLE release_video ADD id SERIAL PRIMARY KEY;
 CREATE INDEX release_video_release_idx ON release_video(release_id);
 ALTER TABLE release_video ADD CONSTRAINT fk_release_id FOREIGN KEY (release_id) REFERENCES release(id) ON DELETE CASCADE;
 

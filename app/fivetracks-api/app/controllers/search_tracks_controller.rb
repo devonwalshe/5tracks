@@ -1,0 +1,3 @@
+class SearchTracksController < ApplicationController
+  
+end

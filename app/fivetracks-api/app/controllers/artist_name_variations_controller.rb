@@ -1,0 +1,2 @@
+class ArtistNameVariationsController < ApplicationController
+end

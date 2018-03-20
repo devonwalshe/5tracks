@@ -1,0 +1,3 @@
+class ReleaseVideosController < ApplicationController
+
+end

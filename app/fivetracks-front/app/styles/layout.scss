@@ -1,0 +1,40 @@
+%page-id{
+  margin: 5px 0 0 0;
+  font-size: 1.2em;
+  border-radius: 6px;
+  padding: 0px 10px 0px 10px;
+  display: inline-block;
+}
+
+.id-label{
+  @extend %page-id;
+  background-color: $agave;
+  color: $dusk;
+}
+.id-release{
+  @extend %page-id;
+  background-color: $sunrise;
+}
+.id-track{
+  @extend %page-id;
+  background-color: $sand;
+  color: $dusk;
+}
+.id-artist{
+  @extend %page-id;
+  background-color: $stone;
+  color: $dusk;
+}
+
+
+
+
+.section-title{
+  padding: 5px;
+  background-color: $sand;
+}
+
+ul.tracklist{
+  border-bottom: 1px dotted #ddd;
+
+}

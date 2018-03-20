@@ -1,0 +1,2 @@
+class ReleaseIdentifiersController < ApplicationController
+end

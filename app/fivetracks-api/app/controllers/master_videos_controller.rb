@@ -1,0 +1,2 @@
+class MasterVideosController < ApplicationController
+end

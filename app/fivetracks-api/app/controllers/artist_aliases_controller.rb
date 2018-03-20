@@ -1,0 +1,2 @@
+class ArtistAliasesController < ApplicationController
+end

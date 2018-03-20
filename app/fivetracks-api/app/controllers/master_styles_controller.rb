@@ -1,0 +1,2 @@
+class MasterStylesController < ApplicationController
+end

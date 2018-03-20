@@ -1,0 +1,2 @@
+class ReleaseTrackArtistController < ApplicationController
+end

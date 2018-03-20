@@ -1,0 +1,28 @@
+<article class='track'>
+	<h3>{{result.track}}</h3>
+	<div class="detail release">
+		<span>Release: </span> 
+		{{#link-to 'releases.show' result.release}}{{result.release.title}}{{/link-to}}
+	</div>
+	<div class="detail id {{if clicked "clicked"}}" {{action 'toggleClicked'}}>
+		<span>Title: </span> {{result.title}}
+	</div>
+	<div class="detail artists">
+		<span>Artists: </span>
+		{{#if result.mainReleaseArtists }}
+			{{#each result.mainReleaseArtists as |artist|}}
+				{{#link-to 'artists.show' artist}}{{artist.name}}{{/link-to}}
+			{{/each}}
+		{{else if result.artists }}
+			{{#each result.artists as |artist|}}
+				{{#link-to 'artists.show' artist}}{{artist.name}}{{/link-to}}
+			{{/each}}
+		{{else}}
+			No artists at all
+		{{/if}}
+		{{!-- {{debugger}} --}}
+		{{!-- {{#each result.mainReleaseArtists as |artist|}}
+			{{#link-to 'artists.show' artist}}{{artist.name}}{{/link-to}}
+		{{/each}} --}}
+	</div>
+</article>

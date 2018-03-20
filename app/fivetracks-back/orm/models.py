@@ -79,9 +79,15 @@ class ArtistAlias(Base, FiveTracksModel):
   __tablename__ = 'artist_alias'
   __public__ = ['artist_id', 'alias_name']
   
-  artist_id = Column(Integer, ForeignKey('artist.id'), primary_key=True)
-  alias_name = Column(String, primary_key=True)
+  id = Column(Integer, primary_key=True)
+  artist_id = Column(Integer, ForeignKey('artist.id'))
+  alias_name = Column(String)
   artist = relationship("Artist", back_populates="aliases")
+  
+  # @hybrid_property
+  # def id(self):
+  #   return "{} {}".format(self.artist_id, self.alias_name)
+  
   def __repr__(self):
       return "<ArtistAlias(name = '%s', artist_name = '%s')>" % \
              (self.alias_name, self.artist.name)
@@ -176,6 +182,7 @@ class Master(Base, FiveTracksModel):
   styles = relationship("MasterStyle")
   releases = relationship("Release", foreign_keys="Release.master_id")
   release = relationship("Release", foreign_keys=main_release)
+  videos = relationship("MasterVideo", foreign_keys='MasterVideo.master_id')
   
   def __repr__(self):
       return "<Master(id = '%s', year='%s', title='%s')>" % \
@@ -192,6 +199,10 @@ class MasterArtist(Base, FiveTracksModel):
   role = Column(String)
   master = relationship("Master", back_populates='artists')
   artist = relationship("Artist", foreign_keys=artist_id)
+  
+  @hybrid_property
+  def id(self):
+    return "{} {}".format(self.master_id, self.artist_id)
   
   def __repr__(self):
       return "<MasterArtist(master = '%s', artist='%s', anv='%s', join_string='%s', role='%s')>" % \
@@ -218,7 +229,18 @@ class MasterStyle(Base, FiveTracksModel):
   def __repr__(self):
       return "<MasterStyle(master = '%s', style='%s'>)" % \
              (self.master.title, self.style)
-  
+
+class MasterVideo(Base, FiveTracksModel):
+  __tablename__ = 'master_video'
+  __public__ = ['master_id', 'title', 'url']
+  id = Column(Integer, primary_key=True)
+  master_id = Column(Integer, ForeignKey('master.id'))
+  duration = Column(Integer)
+  title = Column(String)
+  description = Column(String)
+  uri = Column(String)
+  master = relationship("Master", back_populates='videos')
+
 class QueueTrack(Base, FiveTracksModel):
   __tablename__ = 'queue_tracks'
   __public__ = ['track_id', 'release_id', 'queue', 'in_library', 'total_rating', 'release', 'track']
@@ -268,6 +290,8 @@ class Release(Base, FiveTracksModel):
   styles = relationship('ReleaseStyle')
   tracks = relationship('ReleaseTrack')
   videos = relationship('ReleaseVideo')
+  identifiers = relationship("ReleaseIdentifier")
+  
   def __repr__(self):
       return "<Release(id = '%s', title='%s', released='%s', country='%s')>" % \
              (self.id, self.title, self.released, self.country)
@@ -275,6 +299,7 @@ class Release(Base, FiveTracksModel):
 class ReleaseArtist(Base, FiveTracksModel):
   __tablename__ = 'release_artist'
   __public__ = ['release_id', 'artist_id', 'extra', 'anv', 'join_string','role', 'artist']
+  
   release_id = Column(Integer, ForeignKey('release.id'), primary_key=True)
   artist_id = Column(Integer, ForeignKey('artist.id'), primary_key=True)
   extra = Column(Boolean)
@@ -342,6 +367,7 @@ class ReleaseIdentifier(Base, FiveTracksModel):
 class ReleaseLabel(Base, FiveTracksModel):
   __tablename__ = 'release_label'
   __public__ = ['release_id', 'label_id', 'catno']
+  
   release_id = Column(Integer, ForeignKey('release.id'), primary_key=True)
   label_id = Column(Integer, ForeignKey('label.id'), primary_key=True)
   label_name = Column(String)

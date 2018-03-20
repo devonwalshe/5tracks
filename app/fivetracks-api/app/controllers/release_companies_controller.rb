@@ -1,0 +1,2 @@
+class ReleaseCompaniesController < ApplicationController
+end

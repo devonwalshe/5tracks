@@ -1,0 +1,2 @@
+class ReleaseGenresController < ApplicationController
+end

@@ -1,0 +1,13 @@
+<div class='release-details'>
+	<p>
+		{{#unless release.mainArtists}}Various Artists{{/unless}}
+		{{#each release.mainArtists as |artist|}}
+			{{#link-to 'artists.show' artist}}{{artist.name}}{{/link-to}}
+		{{/each}}
+	</p>
+	<p>{{release.released}}</p>
+	<p>{{release.country}}</p>
+	<p>{{release.notes}}</p>
+	<p>{{release.masterId}}</p>
+
+</div>

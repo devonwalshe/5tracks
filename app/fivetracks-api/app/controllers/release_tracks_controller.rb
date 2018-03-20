@@ -1,0 +1,2 @@
+class ReleaseTracksController < ApplicationController
+end
