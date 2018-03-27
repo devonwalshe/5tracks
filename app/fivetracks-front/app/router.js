@@ -11,17 +11,19 @@ Router.map(function() {
   this.route('search');
   // queueTracks
   this.route('queue-tracks');
-  // releases
-  this.route('releases', function() {
-    this.route('show', {path: '/:release_id'});
-  });
-  // artists
-  this.route('artists', function() {
-    this.route('show', {path: '/:artist_id'});
-  });
+
   // labels
   this.route('labels', function() {
-    this.route('show', {path: '/:label_id'});
+    this.route('label', {path: '/:id'});
+  });
+  
+  // artists
+  this.route('artists', function() {
+    this.route('artist', {path: '/:id'});
+  });
+  // releases
+  this.route('releases', function() {
+    this.route('release', {path: '/:id'});
   });
   // releaseTracks
   this.route('tracks', function() {

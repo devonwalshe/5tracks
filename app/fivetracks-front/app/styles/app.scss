@@ -2,13 +2,17 @@
 
 //Defaults
 @import 'defaults/palette';
-@import 'layout';
+@import 'defaults/layout';
 
 // Pages
 @import 'pages/artist';
 @import 'pages/label';
 @import 'pages/release';
 @import 'pages/track';
+
+// Components
+@import 'components/artists/artist-card';
+@import 'components/artists/artist-list-paged';
 
 //Finally
 @import 'main';

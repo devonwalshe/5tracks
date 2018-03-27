@@ -12,7 +12,5 @@ export default DS.Model.extend({
   groups: DS.hasMany('group'),
   members: DS.hasMany('member'),
   ArtistUrls: DS.hasMany('artist-url'),
-  labels: DS.hasMany('label')
-  
-  
+  labels: DS.hasMany('label'),
 });

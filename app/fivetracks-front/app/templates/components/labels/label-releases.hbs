@@ -1,0 +1,9 @@
+<div class='section-title'>
+	Releases
+</div>
+{{paginate-buttons model="release" data=releases page=page size=size paginate=(action 'paginate')}}
+{{#each releases as |release|}}
+	{{#link-to 'releases.release' release}}
+		{{release.title}}
+	{{/link-to}}
+{{/each}}

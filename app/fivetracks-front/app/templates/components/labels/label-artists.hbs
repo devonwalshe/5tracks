@@ -1,0 +1,9 @@
+<div class='section-title'>
+	Artists
+</div>
+{{paginate-buttons model="artist" data=artists page=page size=size paginate=(action 'paginate')}}
+{{#each artists as |artist|}}
+	{{#link-to 'artists.artist' artist}}
+		{{artist.name}}
+	{{/link-to}}
+{{/each}}

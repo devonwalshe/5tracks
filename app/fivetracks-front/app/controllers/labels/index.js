@@ -1,5 +1,7 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  attrs: ["contact", "profile"]
+  queryParams: ['page', 'size'],
+  page: 1, 
+  size: 15
 });

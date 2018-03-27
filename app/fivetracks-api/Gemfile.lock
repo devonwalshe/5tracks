@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/cerebris/jsonapi-resources
-  revision: d185ebb76cd20f17d82e05e3298ee291f06aead1
-  specs:
-    jsonapi-resources (0.10.0.pre)
-      activerecord (>= 4.1)
-      concurrent-ruby
-      railties (>= 4.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -75,6 +66,10 @@ GEM
     hashie (3.5.7)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    jsonapi-resources (0.9.0)
+      activerecord (>= 4.1)
+      concurrent-ruby
+      railties (>= 4.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -157,7 +152,7 @@ DEPENDENCIES
   elasticsearch-dsl
   elasticsearch-model
   elasticsearch-rails
-  jsonapi-resources!
+  jsonapi-resources
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.7)

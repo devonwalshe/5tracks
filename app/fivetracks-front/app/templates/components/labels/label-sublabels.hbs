@@ -1,0 +1,9 @@
+<div class='section-title'>
+	Sublabels
+</div>
+
+{{#each sublabels as |sublabel|}}
+	{{#link-to 'labels.label' subalbel}}
+		{{sublabel.name}}
+	{{/link-to}}
+{{/each}}

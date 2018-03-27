@@ -27,8 +27,6 @@
 }
 
 
-
-
 .section-title{
   padding: 5px;
   background-color: $sand;
@@ -37,4 +35,9 @@
 ul.tracklist{
   border-bottom: 1px dotted #ddd;
 
+}
+
+.paginate{
+  background-color: $bloom;
+  color: $midnight;
 }

@@ -9,6 +9,11 @@ class LabelResource < JSONAPI::Resource
   relationship :releases, to: :many
   relationship :artists, to: :many
   
+  # Filters
+  filter :artist_id, apply: ->(records, value, _options) {
+    records.joins(:artists).where('release_artist.artist_id = ?', value).distinct
+  }
+  
   def release_count
     @model.releases.count
   end

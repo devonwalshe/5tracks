@@ -2,6 +2,8 @@ class Artist < ApplicationRecord
   # Set Tablename
   self.table_name = "artist"
   
+  # Scopes
+  
   # Aliases
   alias_attribute :aliases, :artist_aliases
   alias_attribute :urls, :artist_urls
@@ -21,6 +23,12 @@ class Artist < ApplicationRecord
   has_many :release_track_artists
   has_many :release_tracks, -> {distinct}, through: :release_track_artists
   
+  
+  ###
+  def self.label_id(label_id)
+    return Label.find(label_id)
+    
+  end
   
   ### Class methods
   def main_tracks

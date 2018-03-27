@@ -39,7 +39,7 @@ end
 
 # House Gems
 gem 'pg'
-gem 'jsonapi-resources', :git => 'https://github.com/cerebris/jsonapi-resources'
+gem 'jsonapi-resources'#, :git => 'https://github.com/cerebris/jsonapi-resources'
 gem 'elasticsearch'
 gem 'elasticsearch-dsl'
 gem 'elasticsearch-rails'

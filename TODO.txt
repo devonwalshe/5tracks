@@ -16,12 +16,31 @@ DONE - connect rails to ember
 DONE - write pages & routes in ember
 DONE - connect pages with links
 DONE - save tracks to queues
-save multiple tracks to queues
-figure out pagination and counts for large relations
-write custom serializers to make use of better names in ember
-some CSS work
-start on filling out ratings scores via jobs in rails
-design page flow
+DONE - save multiple tracks to queues
+DONE - Figure out pagination and counts for large relations
+Some basic CSS work
 Import itunes library
+Watch labels and artists and get updates with new releases
+Start on filling out ratings scores via jobs in rails
 Start on algorithm to suggest tracks based on the similarity to your library
+
 work out text formatting tags with [] - https://support.discogs.com/hc/en-us/articles/360001568133#format
+Activity graph for labels and artists.
+User content ideas - sharing tracks / playlists
+
+### DB IMPORT ###
+include html text formatting on label contact info and wherever else its found
+Include artist alias_artist_id for aliases
+Include more ids for resources where found
+
+### ES reindex ###
+Elasticsearch for all (important) models
+
+### fresh data ###
+Nightly updates from discogs for new releases, labels, etc
+
+### Sales ### 
+Amazon links
+Beatport links
+Itunes links
+

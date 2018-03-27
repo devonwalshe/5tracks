@@ -1,0 +1,39 @@
+<div class='id-label'>
+	Label
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<h1>{{model.label.name}}</h1>
+		{{labels/label-artists artists=model.artists 
+			page=artistsPage size=artistsSize
+			paginate=(action "paginate")}}
+		{{labels/label-releases releases=model.releases 
+			page=releasesPage size=releasesSize
+			paginate=(action "paginate")}}
+
+	</div>
+	
+	
+	
+	<div class="col-md-4 pull-right">
+		<div class='label-details'>
+			<ul class='list-inline'>
+				<li class='list-inline-item'>Contact:</li>
+				<li class='list-inline-item'>{{model.label.contactInfo}}</li>
+			</ul>
+			<ul class='list-inline'>
+				<li class='list-inline-item'>Profile:</li>
+				<li class='list-inline-item'>{{model.label.profile}}</li>
+			</ul>
+		</div>
+
+		{{#if label.parent}}
+			Parent Label: 
+			{{#link-to 'labels.show' model.label.parent}}{{model.label.parent.name}}{{/link-to}}
+		{{/if}}
+
+		{{#if label.sublabels}}
+			{{labels/label-sublabels sublabels=model.label.releases}}	
+		{{/if}}
+	</div>
+</div>
