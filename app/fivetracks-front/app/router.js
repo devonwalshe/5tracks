@@ -7,6 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+
   // search
   this.route('search');
   // queueTracks
@@ -16,7 +18,7 @@ Router.map(function() {
   this.route('labels', function() {
     this.route('label', {path: '/:id'});
   });
-  
+
   // artists
   this.route('artists', function() {
     this.route('artist', {path: '/:id'});
@@ -27,14 +29,18 @@ Router.map(function() {
   });
   // releaseTracks
   this.route('tracks', function() {
-    this.route('show', {path: '/:track_id'});
+    this.route('track', {path: '/:id'});
   });
-
+  // Queues
   this.route('queue', function() {
     this.route('scrub');
     this.route('listen');
     this.route('weekly');
   });
+  this.route('users', function() {
+    this.route('new');
+  });
+  this.route('dashboard');
 });
 
 export default Router;

@@ -18,13 +18,16 @@ DONE - connect pages with links
 DONE - save tracks to queues
 DONE - save multiple tracks to queues
 DONE - Figure out pagination and counts for large relations
-Some basic CSS work
-Import itunes library
+DONE - User Auth
+Sign up new user
+Basic queue flow
+Add all label & artists tracks to queue
 Watch labels and artists and get updates with new releases
+Some basic CSS work
 Start on filling out ratings scores via jobs in rails
 Start on algorithm to suggest tracks based on the similarity to your library
-
-work out text formatting tags with [] - https://support.discogs.com/hc/en-us/articles/360001568133#format
+Import itunes library
+work out text formatting tags with [] - https://support.discogs.com/hc/en-us/articles/360001568133#format - Maybe work this out on data parsing before db
 Activity graph for labels and artists.
 User content ideas - sharing tracks / playlists
 
@@ -43,4 +46,15 @@ Nightly updates from discogs for new releases, labels, etc
 Amazon links
 Beatport links
 Itunes links
+Spotify
+
+### Streaming ### 
+Youtube links
+Itunes Music
+Discogs
+
+### Release strategy ###
+Only open to gigging DJ's at first
+No money, everything free
+Collect addresses for invites
 

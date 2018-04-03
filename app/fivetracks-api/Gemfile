@@ -44,5 +44,6 @@ gem 'elasticsearch'
 gem 'elasticsearch-dsl'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
+gem 'devise'
 
 

@@ -1,4 +1,15 @@
-
-<button class="paginate" {{action "paginate" model "back"}}>&laquo;</button>
-{{pagination-helper model data page size}}
-<button class='paginate'{{action "paginate" model "forward"}}>&raquo;</button>
+{{#if data.isPending}}
+	...loading
+{{else}}
+	{{#unless (eq page 1)}}
+		<button class="paginate" {{action "paginate" model "back"}}>&laquo;</button>
+	{{/unless}}
+	
+	{{pagination-helper model data page size}}
+	
+	{{#unless (eq page data.meta.pages)}}
+		{{#unless (eq 0 data.meta.pages)}}
+			<button class='paginate'{{action "paginate" model "forward"}}>&raquo;</button>
+		{{/unless}}
+	{{/unless}}
+{{/if}}

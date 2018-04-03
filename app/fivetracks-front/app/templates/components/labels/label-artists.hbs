@@ -3,7 +3,7 @@
 </div>
 {{paginate-buttons model="artist" data=artists page=page size=size paginate=(action 'paginate')}}
 {{#each artists as |artist|}}
-	{{#link-to 'artists.artist' artist}}
+	{{#link-to 'artists.artist' artist.id}}
 		{{artist.name}}
 	{{/link-to}}
 {{/each}}

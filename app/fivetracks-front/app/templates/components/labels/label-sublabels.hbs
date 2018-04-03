@@ -3,7 +3,7 @@
 </div>
 
 {{#each sublabels as |sublabel|}}
-	{{#link-to 'labels.label' subalbel}}
+	{{#link-to 'labels.label' sublabel.id}}
 		{{sublabel.name}}
 	{{/link-to}}
 {{/each}}

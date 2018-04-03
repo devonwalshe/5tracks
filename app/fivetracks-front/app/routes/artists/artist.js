@@ -1,6 +1,20 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
+  queryParams:{
+    labelsPage:{
+      refreshModel: true
+    }, 
+    labelsSize:{
+      refreshModel: true
+    },
+    releasesPage:{
+      refreshModel: true
+    },
+    releasesSize:{
+      refreshModel: true
+    }
+  },
   model(params){
     return Ember.RSVP.hash({
       // Artist

@@ -1,2 +1,3 @@
 class QueueTracksController < ApplicationController
+
 end

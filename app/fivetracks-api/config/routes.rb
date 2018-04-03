@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { sessions: 'sessions'}
   ### Artists
   jsonapi_resources :artists
   jsonapi_resources :artist_aliases
@@ -31,5 +32,8 @@ Rails.application.routes.draw do
 
   ### Search
   get 'search-tracks', to: 'search#es_search'
+  
+  ### Current User
+  get 'users/me', to: 'users#me'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

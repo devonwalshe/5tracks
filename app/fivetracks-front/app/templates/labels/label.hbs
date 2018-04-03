@@ -4,13 +4,21 @@
 <div class="row">
 	<div class="col-md-8">
 		<h1>{{model.label.name}}</h1>
-		{{labels/label-artists artists=model.artists 
-			page=artistsPage size=artistsSize
-			paginate=(action "paginate")}}
-		{{labels/label-releases releases=model.releases 
-			page=releasesPage size=releasesSize
-			paginate=(action "paginate")}}
-
+		{{#if model.artists}}
+			{{labels/label-artists artists=model.artists 
+				page=artistsPage size=artistsSize
+				paginate=(action "paginate")}}
+		{{else}}
+			No artists
+		{{/if}}
+		
+		{{#if model.releases}}
+			{{labels/label-releases releases=model.releases 
+				page=releasesPage size=releasesSize
+				paginate=(action "paginate")}}
+		{{else}}
+			No releases
+		{{/if}}
 	</div>
 	
 	
@@ -27,13 +35,13 @@
 			</ul>
 		</div>
 
-		{{#if label.parent}}
+		{{#if model.label.parent}}
 			Parent Label: 
-			{{#link-to 'labels.show' model.label.parent}}{{model.label.parent.name}}{{/link-to}}
+			{{#link-to 'labels.label' model.label.parent.id}}{{model.label.parent.name}}{{/link-to}}
 		{{/if}}
 
-		{{#if label.sublabels}}
-			{{labels/label-sublabels sublabels=model.label.releases}}	
+		{{#if model.label.sublabels}}
+			{{labels/label-sublabels sublabels=model.label.sublabels}}	
 		{{/if}}
 	</div>
 </div>

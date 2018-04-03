@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315171811) do
+ActiveRecord::Schema.define(version: 20180402181230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,15 +105,18 @@ ActiveRecord::Schema.define(version: 20180315171811) do
     t.text "uri"
   end
 
-  create_table "queue_tracks", id: :serial, force: :cascade do |t|
-    t.integer "track_id"
+  create_table "queue_tracks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "release_track_id"
     t.integer "release_id"
     t.string "queue"
     t.boolean "in_library"
-    t.float "popularity_rating"
-    t.float "underground_rating"
-    t.float "similarity_rating"
-    t.float "total_rating"
+    t.integer "popularity_rating"
+    t.integer "underground_rating"
+    t.integer "similarity_rating"
+    t.integer "total_rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "release", id: :integer, default: nil, force: :cascade do |t|
@@ -241,6 +244,25 @@ ActiveRecord::Schema.define(version: 20180315171811) do
     t.index ["release_id"], name: "track_search_release_idx"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "authentication_token", limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   add_foreign_key "artist_alias", "artist", name: "fk_artist_id", on_delete: :cascade
   add_foreign_key "artist_namevariation", "artist", name: "fk_artist_id", on_delete: :cascade
   add_foreign_key "artist_url", "artist", name: "fk_artist_id", on_delete: :cascade
@@ -249,8 +271,6 @@ ActiveRecord::Schema.define(version: 20180315171811) do
   add_foreign_key "master_genre", "master", name: "fk_master_id", on_delete: :cascade
   add_foreign_key "master_style", "master", name: "fk_master_id", on_delete: :cascade
   add_foreign_key "master_video", "master", name: "fk_master_id", on_delete: :cascade
-  add_foreign_key "queue_tracks", "release", name: "queue_tracks_release_id_fkey"
-  add_foreign_key "queue_tracks", "release_track", column: "track_id", name: "queue_tracks_track_id_fkey"
   add_foreign_key "release_artist", "release", name: "fk_release_id", on_delete: :cascade
   add_foreign_key "release_company", "release", name: "fk_release_id", on_delete: :cascade
   add_foreign_key "release_format", "release", name: "fk_release_id", on_delete: :cascade

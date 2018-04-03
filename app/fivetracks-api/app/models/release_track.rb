@@ -5,7 +5,7 @@ class ReleaseTrack < ApplicationRecord
   ## Relationships
   belongs_to :release
   has_many :release_track_artists, foreign_key: :release_track_id
-  has_one :release_label, foreign_key: :release_id
+  has_one :release_label, foreign_key: :release_id, primary_key: :release_id
   has_one :label, through: :release_label
   has_many :artists, through: :release_track_artists
   has_many :release_artists, -> {where('release_artist.extra': 0)}, foreign_key: :release_id, primary_key: :release_id

@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(environment) {
+  
   let ENV = {
     modulePrefix: 'fivetracks-front',
     environment,
@@ -14,9 +15,12 @@ module.exports = function(environment) {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
-      }
+      },
     },
-
+    'ember-simple-auth': {
+      routeAfterAuthentication: 'dashboard',
+      routeIfAlreadyAuthenticated: 'dashboard'
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

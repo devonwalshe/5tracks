@@ -1,47 +1,62 @@
-<div class="row">
-	<div class='section-title col-md-12'>
-		<div class="row">
-			<div class="col-md-4">
-				<h3>Tracklist:</h3>
-			</div>
-			<div class='col-md-2 pull-right'>
-				<button {{action 'allQueueSave' release}}><h5>Save all to Queue</h5></button>
+<div class='section-title'>
+	<div class="row">
+		<div class='col-md-12'>
+			<div class="row">
+				<div class="col-md-4">
+					<h3>Tracklist:</h3>
+				</div>
+				<div class='col-md-2 pull-right'>
+					{{#if session.isAuthenticated}}
+						<button class='queue-button' {{action 'allQueueSave' release}}><h5>Save all to Queue</h5></button>
+					{{/if}}
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <div class='row'>
-	<ul class='tracklist-heading'>
-		<li class='sequence col-md-1'>Sequence</li>
-		<li class='position col-md-1'>Position</li>
-		<li class='title col-md-3'>Title</li>
-		<li class='track-artists col-md-2'>Track Artists</li>
-		<li class='queue col-md-2 pull-right'>Queue</li>
-	</ul>
+	<div class="col-md-12">
+		<ul class='tracklist-heading'>
+			<li class='sequence col-md-1'>Sequence</li>
+			<li class='position col-md-1'>Position</li>
+			<li class='title col-md-3'>Title</li>
+			<li class='track-artists col-md-2'>Track Artists</li>
+			<li class='queue col-md-2 pull-right'>Queue</li>
+		</ul>
+	</div>
 </div>
 
 {{#each tracks as |track|}}
 	<div class='row'>
-		<ul class='tracklist'>
-			<li class='sequence col-md-1'>{{track.sequence}}</li>
-			<li class='position col-md-1'>{{track.position}}</li>
-			<li class='title col-md-3'>
-				<div class='release-track'>
-					<div class='release-track-title'>{{#link-to 'tracks.show' track}}{{track.title}}{{/link-to}}</div>
-				</div>
-			</li>
-			<li class='track_artists col-md-2' {{action 'showTrack' track}} >Track Artists</li>
-			<li class='queue col-md-2 pull-right'>
-				{{#if track.queued}}
-					Track on {{#link-to 'queue.scrub'}}{{track.onQueue}}{{/link-to}} queue
-				{{else}}
+		<div class='col-md-12'>
+			<ul class='tracklist'>
+				<li class='sequence col-md-1'>{{track.sequence}}</li>
+				<li class='position col-md-1'>{{track.position}}</li>
+				<li class='title col-md-3'>
+					<div class='release-track'>
+						<div class='release-track-title'>{{#link-to 'tracks.track' track.id}}{{track.title}}{{/link-to}}</div>
+					</div>
+				</li>
+				<li class='track_artists col-md-2'>
+					{{#each track.artists as |artist|}}
+						{{#link-to 'artists.artist' artist.id}}{{artist.name}}{{/link-to}}
+					{{/each}}
+				</li>
+				<li class='queue col-md-2 pull-right'>
+					{{#if session.isAuthenticated}}
+						{{#if track.queued}}
+							Track on {{#link-to 'queue.scrub'}}{{track.onQueue}}{{/link-to}} queue
+						{{else}}
 
-					<button {{action 'queueSave' track release 'scrub'}}>Save to Queue</button>
+							<button class='queue-button' {{action 'queueSave' track release 'scrub'}}>Save to Queue</button>
 
-				{{/if}}
-			</li>
+						{{/if}}
+					{{/if}}
+
+				</li>
 			
-		</ul>
+			</ul>
+		</div>
 	</div>
 {{/each}}
 

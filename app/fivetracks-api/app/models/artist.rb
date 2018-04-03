@@ -42,4 +42,19 @@ class Artist < ApplicationRecord
   def release_count
     self.releases.count
   end
+  
+  def stats
+    years = []
+    dates = []
+    Artist.first.releases.map(&:released).each do |date|
+      years << /\d{4}/.match(date)[0]
+      matches = date.scan(/\d+/)
+      if matches.length > 1
+        dates << DateTime.strptime(date, "%Y-%m")
+      end
+    end
+    release_counts = years.inject(Hash.new(0)) { |h, e| h[e] += 1 ; h }
+    last_active = dates.max
+    return {'releases': release_counts}
+  end
 end

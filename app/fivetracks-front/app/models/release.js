@@ -10,6 +10,7 @@ export default DS.Model.extend({
   releaseTracks: DS.hasMany('release-track'),
   artists: DS.hasMany(),
   mainArtists: DS.hasMany('artist'),
+  label: DS.belongsTo('label'),
   tracksToQueue(){
     let modelName = this.constructor.modelName;
     let adapter = this.store.adapterFor(modelName);

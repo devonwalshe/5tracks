@@ -12,10 +12,21 @@
 			  {{#link-to "search"}}
 			    Search
 			  {{/link-to}}
-			  {{#link-to "queue-tracks"}}
+			  {{#link-to "queue"}}
 			    Queue tracks
 			  {{/link-to}}
 			</div>
+			{{!-- Auth --}}
+			{{#if session.isAuthenticated}}
+				<a href="#" {{action 'logout'}}>Logout</a>
+			{{else}}
+				<div class="login">
+					{{#link-to 'login'}}Login{{/link-to}}
+					{{!-- {{#link-to 'sign-up'}}Sign up{{/link-to}} --}}
+				</div>
+			{{/if}}
+
+			
 		</div>
 	</header>
 

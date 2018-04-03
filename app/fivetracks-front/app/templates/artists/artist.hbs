@@ -5,24 +5,27 @@
 Realname: {{model.artist.realname}}
 <br>
 Profile: {{model.artist.profile}}
+
 {{!-- Aliases --}}
 <div class='section-title'>Aliases</div>
-{{!-- {{paginate-buttons model="artist" data=artists page=page size=size paginate=(action 'paginate')}} --}}
 {{#each model.artist.artistAliases as |alias|}}
 	{{alias.aliasName}}
 {{/each}}
+
 {{!--Labels --}}
 <div class='section-title'>Labels</div>
+{{paginate-buttons model="label" data=model.labels page=labelsPage size=labelsSize paginate=(action 'paginate')}}
 {{#each model.labels as |label|}}
-	{{#link-to 'labels.label' label}}
+	{{#link-to 'labels.label' label.id}}
 		{{label.name}}
 	{{/link-to}}
 {{/each}}
-{{!-- {{paginate-buttons model="artist" data=artists page=page size=size paginate=(action 'paginate')}} --}}
+
 {{!-- Releases --}}
 <div class='section-title'>Releases</div>
+{{paginate-buttons model="release" data=model.releases page=releasesPage size=releasesSize paginate=(action 'paginate')}}
 {{#each model.releases as |release|}}
-	{{#link-to 'releases.release' release}}
+	{{#link-to 'releases.release' release.id}}
 		{{release.title}}
 	{{/link-to}}
 {{/each}}

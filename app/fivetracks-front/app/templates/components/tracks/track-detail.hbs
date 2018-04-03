@@ -1,8 +1,3 @@
-<div class='track-detail'>
-	<p>Release: {{#link-to 'releases.show' track.release}}{{track.release.title}}{{/link-to}}</p>
-	<p>Track Artists: {{#each track.artists as |artist|}}{{#link-to 'artists.show' artist}}{{artist.name}}{{/link-to}}{{/each}}</p>
-	<p>Label: {{#link-to 'labels.show' track.label}}{{track.label.name}}{{/link-to}}</p>
-	<p>Release Artists: {{#each track.mainReleaseArtists as |mra|}}{{#link-to 'artists.show' mra}}<p>{{mra.name}}</p>{{/link-to}}{{/each}}</p>
-</div>
+
 
 {{yield}}
