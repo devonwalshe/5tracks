@@ -21,9 +21,18 @@ DONE - Figure out pagination and counts for large relations
 DONE - User Auth
 Sign up new user
 Basic queue flow
+Experience Design
+	Player
+	History
+	Onboarding
+	Actions
+	Community, Gamification, Badges Etc
+	Tagging songs
+	Good mixing pairs
 Add all label & artists tracks to queue
 Watch labels and artists and get updates with new releases
 Some basic CSS work
+
 Start on filling out ratings scores via jobs in rails
 Start on algorithm to suggest tracks based on the similarity to your library
 Import itunes library

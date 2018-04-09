@@ -1,0 +1,25 @@
+<div class='id-track'>
+	Track
+</div>
+<h1>{{model.title}}</h1>
+<div class='track-detail'>
+	<p>Release: 
+		{{#link-to 'releases.release' model.release.id}}
+			{{model.release.title}}
+		{{/link-to}}</p>
+	<p>Track Artists: 
+		{{#each model.artists as |artist|}}
+			{{#link-to 'artists.artist' artist.id}}
+				{{artist.name}}
+			{{/link-to}}{{/each}}</p>
+	<p>Label: 
+		{{#link-to 'labels.label' model.label.id}}
+			{{model.label.name}}
+		{{/link-to}}</p>
+	
+	<p>Release Artists: {{#each model.mainReleaseArtists as |mra|}}
+		{{#link-to 'artists.artist' mra.id}}
+			<p>{{mra.name}}</p>
+		{{/link-to}}{{/each}}</p>
+</div>
+{{outlet}}

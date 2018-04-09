@@ -1,0 +1,42 @@
+<div class='section-title'>
+	<div class="row">
+		<div class='col-md-12'>
+			<div class="row">
+				<div class="col-md-4">
+					<h3>Tracklist:</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class='row'>
+	<div class="col-md-12">
+		<ul class='tracklist-heading'>
+			<li class='title col-md-3'>Title</li>
+			<li class='track-artists col-md-2'>Track Artists</li>
+		</ul>
+	</div>
+</div>
+
+{{#each tracks as |track|}}
+{{log track.trackTitle}}
+	<div class='row'>
+		<div class='col-md-12'>
+			<ul class='tracklist'>
+				<li class='title col-md-3'>
+					<div class='release-track'>
+						<div class='release-track-title'>{{#link-to 'tracks.track' track.releaseTrackId}}{{track.trackTitle}}{{/link-to}}</div>
+					</div>
+				</li>
+				<li class='track_artists col-md-2'>
+					{{#each track.artists as |artist|}}
+						{{#link-to 'artists.artist' artist.id}}{{artist.name}}{{/link-to}}
+					{{/each}}
+				</li>
+			
+			</ul>
+		</div>
+	</div>
+{{/each}}
+
+

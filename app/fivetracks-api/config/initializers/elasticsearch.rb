@@ -1,7 +1,7 @@
 config = {
   host: "http://188.166.136.134:9200",
   user: 'elastic',
-  password: 'alphabrodie12',
+  password: ENV['es_pass'],
   index: '5tracks',
   transport_options: {
     request: { timeout: 5 }
