@@ -97,7 +97,8 @@ GEM
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     pg (1.0.0)
-    puma (3.11.3)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     rack (2.0.4)
     rack-cors (1.0.2)
     rack-test (0.8.3)
@@ -169,7 +170,7 @@ DEPENDENCIES
   jsonapi-resources
   listen (>= 3.0.5, < 3.2)
   pg
-  puma (~> 3.7)
+  puma (~> 4.3)
   rack-cors
   rails (~> 5.1.5)
   spring
